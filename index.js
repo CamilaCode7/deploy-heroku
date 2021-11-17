@@ -2,12 +2,12 @@ const express = require('express');
 
 const app = express();
 
-app.get('/', (req, res) => {
-    req.statusCode(200).send('Esta vivo!!!')  
+const port = process.env.PORT || 3000;
+const message = process.env.MESSAGE || 'Esta vivo!!'
+
+app.get('/', (_req, res) => {
+    res.send(message)  
 });
 
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-  console.log(`Server started on ${PORT}`);
-});
+app.listen(port);
+console.log(`Server started on ${port}`);
